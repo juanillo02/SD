@@ -1,0 +1,48 @@
+{
+    "usuarios": [
+        {
+            "DNI": "22334455A",
+            "userName" : "userSD",
+            "password": "passwordSD45"
+        }
+        
+    ],
+
+    "salas" : [
+        {
+            "Idsala": "E01",
+            "capacidad": "200",
+            "Recursos": [
+                "Proyector",
+                "Pizarra",
+                "Enchufes"
+            ]
+        }
+
+    ],
+
+    "reservas" : [
+        {
+            "IdReserva": "1",
+            "DNI": "22334455A",
+            "fecha": "20/04/20220",
+            "HoraInicio": "11:30",
+            "duracion": "120"
+        }
+    ]
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

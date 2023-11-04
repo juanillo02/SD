@@ -1,0 +1,114 @@
+[
+    {
+        "id": "e6ac29362e9f9961",
+        "type": "debug",
+        "z": "dba5a3b297084876",
+        "name": "Mostrar JSON en pantalla",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "34362f5334e4889c",
+        "type": "http request",
+        "z": "dba5a3b297084876",
+        "name": "Enviar POST",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "http://127.0.0.1:1880/reverse",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "credentials": {},
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "e6ac29362e9f9961"
+            ]
+        ]
+    },
+    {
+        "id": "1c6afd25a7a81318",
+        "type": "inject",
+        "z": "dba5a3b297084876",
+        "name": "str JSON",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"str\":\"Este es el segundo ejercicio de la última práctica de sd.\"}",
+        "payloadType": "json",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "34362f5334e4889c"
+            ]
+        ]
+    },
+    {
+        "id": "b14153c746c73ce4",
+        "type": "http in",
+        "z": "dba5a3b297084876",
+        "name": "Recibir POST",
+        "url": "reverse",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "f74933c5e358a3ea"
+            ]
+        ]
+    },
+    {
+        "id": "2b361e874762eae6",
+        "type": "http response",
+        "z": "dba5a3b297084876",
+        "name": "Devolver JSON",
+        "statusCode": "",
+        "headers": {},
+        "x": 560,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f74933c5e358a3ea",
+        "type": "function",
+        "z": "dba5a3b297084876",
+        "name": "Invertir cadena",
+        "func": "var Invertir = msg.payload.str;\nvar x = Invertir.length;\nvar reversed_str = \"\";\nwhile(x>=0){\n    reversed_str = reversed_str + Invertir.charAt(x);\n    x--;\n}\nmsg.payload.reversed_str = reversed_str;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "2b361e874762eae6"
+            ]
+        ]
+    }
+]

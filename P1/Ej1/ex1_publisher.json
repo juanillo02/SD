@@ -1,0 +1,107 @@
+[
+    {
+        "id": "314fbf5895b6a233",
+        "type": "inject",
+        "z": "7271328d94edcebe",
+        "name": "Tiempo",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 120,
+        "wires": [
+            [
+                "9e222be49437552c"
+            ]
+        ]
+    },
+    {
+        "id": "9e222be49437552c",
+        "type": "random",
+        "z": "7271328d94edcebe",
+        "name": "Numeros",
+        "low": "10",
+        "high": "100",
+        "inte": "true",
+        "property": "payload",
+        "x": 360,
+        "y": 120,
+        "wires": [
+            [
+                "755c14028a343c7c"
+            ]
+        ]
+    },
+    {
+        "id": "88ef3ac2d5767d10",
+        "type": "mqtt out",
+        "z": "7271328d94edcebe",
+        "name": "Enviar",
+        "topic": "numero",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c96ead67b901087",
+        "x": 730,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "755c14028a343c7c",
+        "type": "function",
+        "z": "7271328d94edcebe",
+        "name": "Sumatorio",
+        "func": "var suma = context.get('sum') || 0;\nparseInt (msg.payload);\nif ((msg.payload%2) == 0){\n    suma = suma + msg.payload;\n    msg.payload = \"El número recibido es \" + msg.payload + \" y la suma \" + suma +\".\";\n    context.set('sum', suma);\n    return msg;\n}\nelse{\n    msg.payload = \"El número recibido es \" + msg.payload + \" y la suma \" + suma +\".\";\n    context.set('sum', suma)\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 120,
+        "wires": [
+            [
+                "88ef3ac2d5767d10"
+            ]
+        ]
+    },
+    {
+        "id": "3c96ead67b901087",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]

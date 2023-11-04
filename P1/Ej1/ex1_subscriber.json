@@ -1,0 +1,66 @@
+[
+    {
+        "id": "dcb467030cdfdea2",
+        "type": "mqtt in",
+        "z": "3798b8814d0e38da",
+        "name": "Recibir",
+        "topic": "numero",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "9e81fd3af1295530",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "9c762b1919c10282"
+            ]
+        ]
+    },
+    {
+        "id": "9c762b1919c10282",
+        "type": "debug",
+        "z": "3798b8814d0e38da",
+        "name": "Suma",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9e81fd3af1295530",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]

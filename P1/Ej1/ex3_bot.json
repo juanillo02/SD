@@ -1,0 +1,421 @@
+[
+    {
+        "id": "c1b0066ce51f4cdf",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e49a041ad45fbd4d",
+        "type": "telegram receiver",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "bot": "203903822ce59f3e",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "349ed6fbfbfbc360"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "349ed6fbfbfbc360",
+        "type": "debug",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8e318451a3acd2a6",
+        "type": "telegram sender",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "bot": "203903822ce59f3e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 400,
+        "wires": [
+            [
+                "349ed6fbfbfbc360"
+            ]
+        ]
+    },
+    {
+        "id": "4e18ddf826f176cc",
+        "type": "telegram command",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "command": "/hola",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "203903822ce59f3e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "bbc6dc3b0150757b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bbc6dc3b0150757b",
+        "type": "function",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "func": "var hola={\n    \"chatId\": 5339579507,\n    \"type\": \"message\",\n    \"content\": \"Hola, bienvenido/a al bot, espero ser de su agrado🥰.\",\n}\nmsg.payload = hola\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "8e318451a3acd2a6"
+            ]
+        ]
+    },
+    {
+        "id": "c9e19ab516ecec13",
+        "type": "telegram command",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "command": "/start",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "203903822ce59f3e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "5af806b5174d7d0d",
+                "ee744a03e1169e8f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5af806b5174d7d0d",
+        "type": "function",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "func": "var start={\n    \"chatId\": 5339579507,\n    \"type\": \"message\",\n    \"content\": \"Muchas gracias por iniciar nuestro bot, a partir de ahora espero poder ayudarle en lo que necesite. Use /help para que muestre los comandos disponibles.\",\n}\n\nmsg.payload = start\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "8e318451a3acd2a6"
+            ]
+        ]
+    },
+    {
+        "id": "8e3b9d98106798dc",
+        "type": "telegram command",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "command": "/ranking",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "203903822ce59f3e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "cf163bbf8841f702"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cf163bbf8841f702",
+        "type": "function",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "func": "var ranking={\n    \"chatId\": 5339579507,\n    \"type\": \"message\",\n    \"content\": \"Esta página te llevará a las casas de apuesta de Eurovisión 🌍🌎🌏:\\n https://eurovisionworld.com/odds/eurovision \\n ¡España va de las primeras posiciones!\",\n}\nmsg.payload = ranking\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 420,
+        "wires": [
+            [
+                "8e318451a3acd2a6"
+            ]
+        ]
+    },
+    {
+        "id": "2148b72056b89d68",
+        "type": "telegram command",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "command": "/buscaminas",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "203903822ce59f3e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 500,
+        "wires": [
+            [
+                "edd059de1dbc766b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "edd059de1dbc766b",
+        "type": "function",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "func": "var buscaminas={\n    \"chatId\": 5339579507,\n    \"type\": \"message\",\n    \"content\": \"Esta es la página donde te llevará al buscaminas 💣💥:\\n https://buscaminas.eu/\",\n}\nmsg.payload = buscaminas\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 500,
+        "wires": [
+            [
+                "8e318451a3acd2a6"
+            ]
+        ]
+    },
+    {
+        "id": "fb21fbab55ab531f",
+        "type": "telegram command",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "command": "/help",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "203903822ce59f3e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 580,
+        "wires": [
+            [
+                "e521c4a1d55b2411",
+                "06378ac36f3827db"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e521c4a1d55b2411",
+        "type": "function",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "func": "var help={\n    \"chatId\": 5339579507,\n    \"type\": \"message\",\n    \"content\": \"Los comandos que puedes utilizar son:\\n /start - inicio del bot\\n /help - muestra los comandos\\n /hola - saluda al bot\\n /ranking - ranking de eurovision\\n /buscaminas - juego del buscaminas\"\n}\nmsg.payload = help\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 580,
+        "wires": [
+            [
+                "8e318451a3acd2a6"
+            ]
+        ]
+    },
+    {
+        "id": "06378ac36f3827db",
+        "type": "function",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "func": "var help={\n    \"chatId\": 5339579507,\n    \"type\": \"sticker\",\n    \"content\": \"CAACAgIAAxkBAAN4YnpiybUpB7YGijJA778v_kZ8yA4AArgCAAI2diAOuB1hV81Vmt4kBA\",\n}\nmsg.payload = help\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 620,
+        "wires": [
+            [
+                "8e318451a3acd2a6"
+            ]
+        ]
+    },
+    {
+        "id": "af825c521afb10c9",
+        "type": "telegram command",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "command": "hola",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "203903822ce59f3e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "bbc6dc3b0150757b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "933f66a4f7ef94f7",
+        "type": "telegram command",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "command": "start",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "203903822ce59f3e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "5af806b5174d7d0d",
+                "ee744a03e1169e8f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "35238b634ffe9a9e",
+        "type": "telegram command",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "command": "help",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "203903822ce59f3e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 620,
+        "wires": [
+            [
+                "e521c4a1d55b2411",
+                "06378ac36f3827db"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ee744a03e1169e8f",
+        "type": "function",
+        "z": "c1b0066ce51f4cdf",
+        "name": "",
+        "func": "var sticker={\n    \"chatId\": 5339579507,\n    \"type\": \"sticker\",\n    \"content\": \"CAACAgIAAxkBAAPaYnpFPCeeycKdyl91jUM1ezlMhqMAAnoXAAKGRFlK8vpWen-86OEkBA\",\n}\nmsg.payload = sticker\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "8e318451a3acd2a6"
+            ]
+        ]
+    },
+    {
+        "id": "203903822ce59f3e",
+        "type": "telegram bot",
+        "botname": "Sd_Prueba_Bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]
